@@ -292,7 +292,7 @@ class mala:
     def __new__(  # type: ignore[misc]
         cls,
         logprob_fn: Callable,
-        step_size: float,
+        step_size: Union[float, Array],
     ) -> SamplingAlgorithm:
         step = cls.kernel()
 

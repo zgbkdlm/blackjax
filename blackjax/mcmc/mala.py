@@ -70,7 +70,7 @@ def kernel():
             state.logprob_grad,
         )
         theta_ravel, _ = ravel_pytree(theta)
-        return -0.25 * (1.0 / step_size) * jnp.dot(theta_ravel, theta_ravel)
+        return -0.25 * jnp.dot(theta_ravel, theta_ravel / step_size)
 
     def one_step(
         rng_key: PRNGKey, state: MALAState, logprob_fn: Callable, step_size: float
